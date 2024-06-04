@@ -6,46 +6,51 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent">
 
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include layout="@layout/item_user_skeleton"/>
+
+            <include layout="@layout/item_user_skeleton"/>
+
+            <include layout="@layout/item_user_skeleton"/>
+
+            <include layout="@layout/item_user_skeleton"/>
+
+            <include layout="@layout/item_user_skeleton"/>
+
+            <include layout="@layout/item_user_skeleton"/>
+
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:visibility="visible">
+
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_sample"
+            android:id="@+id/recyclerviewLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/layout_item"/>
+            tools:listitem="@layout/item_user">
 
-        <com.facebook.shimmer.ShimmerFrameLayout
-            android:id="@+id/sfl_sample"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        </androidx.recyclerview.widget.RecyclerView>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <include layout="@layout/layout_item_shimmer"/>
-
-                <include layout="@layout/layout_item_shimmer"/>
-
-                <include layout="@layout/layout_item_shimmer"/>
-
-                <include layout="@layout/layout_item_shimmer"/>
-
-                <include layout="@layout/layout_item_shimmer"/>
-
-                <include layout="@layout/layout_item_shimmer"/>
-
-                <include layout="@layout/layout_item_shimmer"/>
-
-                <include layout="@layout/layout_item_shimmer"/>
-
-                <include layout="@layout/layout_item_shimmer"/>
-
-                <include layout="@layout/layout_item_shimmer"/>
-
-            </LinearLayout>
-
-
-        </com.facebook.shimmer.ShimmerFrameLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
